@@ -1,28 +1,61 @@
-# -Peer-Ping-Pong-project
-In the Peer Ping Pong project, a NAO humanoid robot plays a simplified ping‑pong game with a human partner:
+# 🤖 NAO Robot Ball Throwing Game
 
-It prompts the user to place a ball in its hand by speaking and waiting for a head‑touch sensor event.
+This project controls a NAO humanoid robot to play a simple ball-throwing game using tactile input and arm movement. The robot asks the user to place a ball in its hand, throws it toward a target, and tracks successful shots based on user feedback.
 
-Once the ball is in place, it closes its hand, raises its arm, and “serves” the ball by opening the hand and performing a throw motion.
+---
 
-After each serve, it asks the user whether the shot was successful (yes/no) via text‑to‑speech and console input, tracking the number of successful hits until a target is reached.
+## 🎯 Project Objective
 
-The implementation covers:
+- Use NAO's **touch sensors** and **speech output** to interact with users
+- Control arm joints using **ALMotion API**
+- Perform a **throwing gesture** with coordinated joint angles
+- Track performance across multiple attempts
 
-Connecting to NAO’s motion, speech, and memory services.
+---
 
-Subscribing to the TouchChanged event for head‑touch detection.
+## ⚙️ Features
 
-Defining helper functions for arm‑raising presets and the throwing sequence.
+- 🤝 Waits for user to touch the head before throwing
+- 🗣️ Uses `ALTextToSpeech` to guide the user
+- 💪 Moves left arm through 3 stages: ready, receive ball, throw
+- 🔁 Loops until 7 successful throws are confirmed
 
-A main loop that repeats until a predefined number of successful shots is achieved, with real‑time spoken prompts and user feedback.
+---
 
-This project demonstrates event‑driven robotics interaction, basic sensor integration, and synchronized motion plus speech control on the NAO platform.
+## 🧠 How It Works
 
+1. NAO greets the user and asks them to place a ball in its left hand.
+2. The user triggers the action by **touching the head sensor**.
+3. NAO **closes its hand**, raises the arm, and **throws** the ball.
+4. After each throw, it asks the user: _"Did I score?"_
+5. The user replies in the terminal, and NAO repeats until it scores 7 times.
 
+---
 
+## 🧩 Tech Stack
 
+| Component       | Description                                  |
+|------------------|----------------------------------------------|
+| `naoqi`          | Python SDK for NAO robot                     |
+| `ALMotion`       | Controls NAO's joints and movement           |
+| `ALTextToSpeech` | Makes NAO talk to the user                   |
+| `ALMemory`       | Subscribes to head touch events              |
+| `ALBroker`       | Communication interface with NAO             |
 
+---
 
+## 📍 Requirements
 
+- NAO Robot connected to the same network
+- Python 2.7 (for `raw_input`)
+- `naoqi` Python SDK installed
+- IP address of the robot (`nao_ip`) configured
+
+---
+
+## 🚀 How to Run
+
+1. Set the correct IP address in the script:
+   ```python
+   nao_ip = "10.1.95.107"  # replace with your NAO's IP
 
