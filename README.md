@@ -53,9 +53,15 @@ This project controls a NAO humanoid robot to play a simple ball-throwing game u
 
 ---
 
+
 ## 🚀 How to Run
 
 1. Set the correct IP address in the script:
    ```python
    nao_ip = "10.1.95.107"  # replace with your NAO's IP
+
+---
+
+
+https://github.com/user-attachments/assets/f1b1263d-b374-4b58-9c5c-c4596802dece
 
